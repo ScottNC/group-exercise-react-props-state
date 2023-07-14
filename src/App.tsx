@@ -27,6 +27,8 @@ function App() {
 		"joke": "Chuck Norris does not own a stove, oven, or microwave, because revenge is a dish best served cold.",
 	}])
 
+	const filteredJokes: number[] = [3];
+
 	return (
 		<div className="App">
 
@@ -39,6 +41,16 @@ function App() {
 			<h2>Jokes: </h2>
 			<ul> {
 				jokes.map((joke) => 
+					<li key={joke.id}>
+						<ChuckJoke
+							joke={joke.joke}
+						/>
+					</li>
+				)
+			}</ul>
+			<h2>Filtered Jokes: </h2>
+			<ul> {
+				jokes.filter(joke => filteredJokes.includes(joke.id)).map((joke) => 
 					<li key={joke.id}>
 						<ChuckJoke
 							joke={joke.joke}
